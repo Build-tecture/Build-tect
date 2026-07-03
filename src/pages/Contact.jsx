@@ -70,7 +70,7 @@ export default function Contact() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="section-padding text-white" style={{ background: 'linear-gradient(to bottom right, #0F172A, #1363DF)' }}>
+      <section className="section-padding text-white" style={{ background: 'linear-gradient(to bottom right, #111827, #4B5563)' }}>
         <div className="container-custom text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

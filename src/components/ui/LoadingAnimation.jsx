@@ -56,7 +56,7 @@ export default function LoadingAnimation({ isLoading, onComplete, message = 'Loa
               <motion.div
                 className="absolute inset-0 rounded-full"
                 style={{
-                  background: 'conic-gradient(from 0deg, #1363DF, #D9B08C, #1363DF)',
+                  background: 'conic-gradient(from 0deg, #4B5563, #D9B08C, #4B5563)',
                   padding: '3px'
                 }}
                 animate={{ rotate: 360 }}

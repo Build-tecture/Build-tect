@@ -16,7 +16,7 @@ export default function Package() {
   return (
     <div className="pt-20">
       {/* Hero Section with Blue Gradient */}
-      <section className="section-padding text-white" style={{ background: 'linear-gradient(to bottom right, #0F172A, #1363DF)' }}>
+      <section className="section-padding text-white" style={{ background: 'linear-gradient(to bottom right, #111827, #4B5563)' }}>
         <div className="container-custom text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

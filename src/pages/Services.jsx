@@ -47,7 +47,7 @@ export default function Services() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="section-padding text-white" style={{ background: 'linear-gradient(to bottom right, #0F172A, #1363DF)' }}>
+      <section className="section-padding text-white" style={{ background: 'linear-gradient(to bottom right, #111827, #4B5563)' }}>
         <div className="container-custom text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -126,7 +126,7 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding text-white" style={{ background: 'linear-gradient(to bottom right, #1363DF, #0F172A)' }}>
+      <section className="section-padding text-white" style={{ background: 'linear-gradient(to bottom right, #4B5563, #111827)' }}>
         <div className="container-custom text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

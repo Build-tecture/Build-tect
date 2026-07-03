@@ -66,7 +66,7 @@ export default function About() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="section-padding text-white" style={{ background: 'linear-gradient(to bottom right, #0F172A, #1363DF)' }} ref={heroRef}>
+      <section className="section-padding text-white" style={{ background: 'linear-gradient(to bottom right, #111827, #4B5563)' }} ref={heroRef}>
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

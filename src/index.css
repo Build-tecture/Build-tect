@@ -50,12 +50,12 @@
   }
   
   ::-webkit-scrollbar-thumb {
-    background: #1363DF;
+    background: #9CA3AF;
     border-radius: 4px;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: #0F172A;
+    background: #6B7280;
   }
 }
 
@@ -117,7 +117,7 @@
 
   /* Glow Effects */
   .glow-brand {
-    box-shadow: 0 0 20px rgba(19, 99, 223, 0.3);
+    box-shadow: 0 0 20px rgba(75, 85, 99, 0.3);
   }
   
   .glow-accent {
@@ -126,7 +126,7 @@
 
   /* Text Gradient */
   .text-gradient {
-    background: linear-gradient(135deg, #1363DF, #D9B08C);
+    background: linear-gradient(135deg, #4B5563, #D9B08C);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

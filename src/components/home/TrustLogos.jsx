@@ -4,27 +4,27 @@ import { useInView } from 'react-intersection-observer'
 const partners = [
   {
     name: 'LEED Certified',
-    logo: 'https://via.placeholder.com/120x60/1363DF/FFFFFF?text=LEED',
+    logo: 'https://via.placeholder.com/120x60/4B5563/FFFFFF?text=LEED',
   },
   {
     name: 'AIA Member',
-    logo: 'https://via.placeholder.com/120x60/1363DF/FFFFFF?text=AIA',
+    logo: 'https://via.placeholder.com/120x60/4B5563/FFFFFF?text=AIA',
   },
   {
     name: 'NCARB',
-    logo: 'https://via.placeholder.com/120x60/1363DF/FFFFFF?text=NCARB',
+    logo: 'https://via.placeholder.com/120x60/4B5563/FFFFFF?text=NCARB',
   },
   {
     name: 'Better Business Bureau',
-    logo: 'https://via.placeholder.com/120x60/1363DF/FFFFFF?text=BBB',
+    logo: 'https://via.placeholder.com/120x60/4B5563/FFFFFF?text=BBB',
   },
   {
     name: 'Green Building Council',
-    logo: 'https://via.placeholder.com/120x60/1363DF/FFFFFF?text=GBC',
+    logo: 'https://via.placeholder.com/120x60/4B5563/FFFFFF?text=GBC',
   },
   {
     name: 'ISO 9001',
-    logo: 'https://via.placeholder.com/120x60/1363DF/FFFFFF?text=ISO',
+    logo: 'https://via.placeholder.com/120x60/4B5563/FFFFFF?text=ISO',
   }
 ]
 
