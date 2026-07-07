@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,11 +10,16 @@
   }
   
   body {
-    @apply font-sans text-gray-900 antialiased;
+    font-family: 'Poppins', sans-serif;
+    color: #232323;
+    background-color: #F7F3EE;
+    @apply antialiased;
     perspective: 1000px;
   }
   
   h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    color: #232323;
     @apply font-semibold leading-tight;
   }
   
@@ -61,15 +68,16 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-brand-600 hover:bg-brand-700 text-white font-medium px-6 py-3 rounded-lg;
-    @apply transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2;
+    @apply bg-[#B7875A] hover:bg-[#9C6D46] text-white font-semibold px-8 py-4 rounded-full;
+    @apply transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#B7875A] focus:ring-offset-2;
     @apply transform hover:scale-105 hover:shadow-lg active:scale-95;
     @apply relative overflow-hidden;
+    font-family: 'Poppins', sans-serif;
   }
   
   .btn-primary::before {
     content: '';
-    @apply absolute inset-0 bg-gradient-to-r from-brand-700 to-brand-500;
+    @apply absolute inset-0 bg-gradient-to-r from-[#9C6D46] to-[#B7875A];
     @apply opacity-0 transition-opacity duration-300;
     z-index: -1;
   }
@@ -79,10 +87,11 @@
   }
   
   .btn-secondary {
-    @apply border-2 border-brand-600 text-brand-600 hover:bg-brand-600 hover:text-white;
-    @apply font-medium px-6 py-3 rounded-lg transition-all duration-300;
-    @apply focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2;
+    @apply border-2 border-[#B7875A] text-[#B7875A] hover:bg-[#B7875A] hover:text-white;
+    @apply font-semibold px-8 py-4 rounded-full transition-all duration-300;
+    @apply focus:outline-none focus:ring-2 focus:ring-[#B7875A] focus:ring-offset-2;
     @apply transform hover:scale-105 hover:shadow-lg active:scale-95;
+    font-family: 'Poppins', sans-serif;
   }
   
   .section-padding {
@@ -91,6 +100,162 @@
   
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .card-shadow {
+    @apply shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl;
+  }
+
+  /* Exact color palette from reference */
+  .bg-main {
+    background-color: #F7F5F1;
+  }
+
+  .bg-alternate {
+    background-color: #F1EDE8;
+  }
+
+  .bg-card {
+    background-color: #FFFFFF;
+  }
+
+  .text-primary {
+    @apply text-[#1a1a1a];
+  }
+
+  .text-secondary {
+    @apply text-[#666666];
+  }
+
+  .text-accent {
+    @apply text-[#B7875A];
+  }
+
+  .bg-accent {
+    @apply bg-[#B7875A];
+  }
+
+  .border-custom {
+    border-color: #E8E4DF;
+  }
+
+  /* Reference-specific spacing */
+  .section-spacing {
+    @apply py-24;
+  }
+
+  /* Navbar styling to match reference */
+  .navbar-ref {
+    background-color: rgba(247, 245, 241, 0.95);
+    backdrop-filter: blur(20px);
+    height: 80px;
+  }
+
+  /* Hero section exactly like reference */
+  .hero-section {
+    padding-top: 120px;
+    padding-bottom: 100px;
+    background-color: #F7F5F1;
+  }
+
+  /* Services section styling */
+  .services-card {
+    @apply bg-white p-10 rounded-2xl transition-all duration-300;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .services-card:hover {
+    @apply transform -translate-y-2;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .service-icon-ref {
+    width: 60px;
+    height: 60px;
+    background-color: #F7F5F1;
+    border: 2px solid #B7875A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+
+  /* Portfolio section exactly like reference */
+  .portfolio-card-ref {
+    @apply bg-white rounded-xl overflow-hidden transition-all duration-300;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  }
+
+  .portfolio-card-ref:hover {
+    @apply transform -translate-y-1;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  }
+
+  .portfolio-image-ref {
+    @apply transition-transform duration-500;
+  }
+
+  .portfolio-card-ref:hover .portfolio-image-ref {
+    @apply scale-105;
+  }
+
+  /* Testimonials like reference */
+  .testimonial-ref {
+    @apply bg-white p-8 rounded-xl;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Process section like reference */
+  .process-card-ref {
+    @apply text-center p-8;
+  }
+
+  .process-icon-ref {
+    width: 80px;
+    height: 80px;
+    background-color: #F7F5F1;
+    border: 2px solid #B7875A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: #B7875A;
+  }
+
+  /* Stats section like reference */
+  .stats-section {
+    background-color: #F1EDE8;
+    padding: 80px 0;
+  }
+
+  .stat-number {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #B7875A;
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* CTA section like reference */
+  .cta-ref {
+    background-image: url('/images/hero-home.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
+  .cta-ref::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 100%);
+  }
+
+  /* Newsletter like reference */
+  .newsletter-ref {
+    background-color: #F1EDE8;
+    padding: 60px 0;
   }
 
   /* 3D Card Effects */
@@ -102,6 +267,104 @@
   .card-3d:hover {
     @apply scale-105;
     transform: rotateY(5deg) rotateX(5deg) scale(1.05);
+  }
+
+  /* Service card styles */
+  .service-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #D4AF37 0%, #B8941E 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover .service-icon {
+    transform: scale(1.1);
+  }
+
+  /* Portfolio hover effect */
+  .portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+  }
+
+  .portfolio-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.8) 0%, rgba(212, 175, 55, 0.8) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
+
+  .portfolio-item:hover::before {
+    opacity: 1;
+  }
+
+  .portfolio-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    color: white;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 2;
+  }
+
+  .portfolio-item:hover .portfolio-content {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* Process line connector */
+  .process-line::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -50%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #D4AF37, rgba(212, 175, 55, 0.3));
+    transform: translateY(-50%);
+  }
+
+  .process-line:last-child::before {
+    display: none;
+  }
+
+  /* CTA Background */
+  .cta-bg {
+    background-image: url('/images/interior-design.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
+  .cta-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(31, 41, 55, 0.85) 0%, rgba(31, 41, 55, 0.75) 100%);
+    z-index: 1;
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 2;
   }
 
   /* Floating Animation */
@@ -195,5 +458,98 @@
     opacity: 0;
     transform: translateY(-20px);
     transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+  }
+}
+
+/* Counter animation */
+@keyframes countUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.counter-item {
+  animation: countUp 0.6s ease-out forwards;
+}
+
+/* Smooth animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-fadeInLeft {
+  animation: fadeInLeft 0.8s ease-out;
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight 0.8s ease-out;
+}
+
+/* Testimonial stars */
+.star-rating {
+  color: #D4AF37;
+}
+
+/* Hover zoom effect */
+.hover-zoom {
+  transition: transform 0.3s ease;
+}
+
+.hover-zoom:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-text {
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+  
+  .process-line::before {
+    display: none;
+  }
+  
+  .service-icon {
+    width: 48px;
+    height: 48px;
   }
 }

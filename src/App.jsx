@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import { QuoteProvider } from './contexts/QuoteContext'
 import { LoadingProvider, useLoading } from './contexts/LoadingContext'
 import LoadingAnimation from './components/ui/LoadingAnimation'
@@ -17,6 +17,8 @@ import Contact from './pages/Contact'
 
 function AppContent() {
   const { isLoading, loadingMessage, stopLoading } = useLoading()
+  const location = useLocation()
+  const isHomePage = location.pathname === '/'
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -44,7 +46,7 @@ function AppContent() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
-      <Footer />
+      {!isHomePage && <Footer />}
     </div>
   )
 }
