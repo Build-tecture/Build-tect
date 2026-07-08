@@ -434,7 +434,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto"
           >
-            <h2 className="text-4xl lg:text-5xl font-serif mb-8">
+            <h2 className="text-4xl lg:text-5xl font-serif mb-8" style={{ color: '#D1CBC3' }}>
               Let's Build Your Dream Project
             </h2>
             <Link to="/contact" className="btn-primary inline-flex items-center gap-2">
