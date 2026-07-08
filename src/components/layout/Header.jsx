@@ -44,8 +44,8 @@ export default function Header() {
   return (
     <header className="fixed w-full z-50 navbar-ref">
       <nav className="container-custom h-full" aria-label="Main navigation">
-        <div className="flex items-center justify-between h-full">
-          {/* Logo */}
+        <div className="flex items-center justify-between h-full gap-8">
+          {/* Logo - Far Left */}
           <div className="flex-shrink-0">
             <Link to="/" className="block">
               <div className="text-2xl font-bold text-primary">
@@ -54,8 +54,8 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-10 flex-grow justify-center">
+          {/* Desktop Navigation - Center (Auto flex to push items to edges) */}
+          <div className="hidden lg:flex items-center space-x-10 flex-1 justify-center">
             {navigation.map((item) => (
               item.dropdown ? (
                 <div 
@@ -100,11 +100,11 @@ export default function Header() {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden lg:flex items-center">
+          {/* CTA Button - Far Right */}
+          <div className="hidden lg:flex items-center flex-shrink-0">
             <Link 
               to="/contact" 
-              className="bg-accent text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-opacity-90 transition-colors"
+              className="bg-accent text-white px-6 py-2 rounded-md text-sm font-semibold hover:bg-[#9C6D46] transition-colors"
             >
               Get Quote
             </Link>
@@ -142,7 +142,7 @@ export default function Header() {
                 ))}
                 <Link 
                   to="/contact" 
-                  className="block mx-4 mt-4 bg-accent text-white px-6 py-2 rounded-full text-center"
+                  className="block mx-4 mt-4 bg-accent text-white px-6 py-2 rounded-md text-center"
                 >
                   Get Quote
                 </Link>

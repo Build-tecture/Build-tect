@@ -78,24 +78,24 @@ export default function Home() {
 
   const portfolio = [
     {
-      title: "Modern Residence",
+      title: "Mr. Shridhar Residence",
       category: "Residential",
       image: "/Mr.Shridhar/living room.jpg"
     },
     {
-      title: "Luxury Interior",
-      category: "Interior Design",
-      image: "/Mr.Shridhar/kitchen-5.jpg"
+      title: "William John's Pizza",
+      category: "Commercial",
+      image: "/William john's pizza/elevation render 2.jpg"
     },
     {
-      title: "Heritage Bedroom",
-      category: "Interior Design", 
+      title: "Mr. Rohan Velani Residence",
+      category: "Residential", 
       image: "/Mr. Rohan Velani/daughter room 2.jpg"
     },
     {
-      title: "Commercial Building",
-      category: "Commercial",
-      image: "/images/hero-home.jpg"
+      title: "Mr. Ram Murat Project",
+      category: "Residential",
+      image: "/Mr. Ram Murat/updated view 2.jpg"
     }
   ]
 
@@ -158,13 +158,22 @@ export default function Home() {
               className="space-y-8"
             >
               <h1 
-                className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif leading-tight text-white"
+                className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-serif leading-tight text-white font-bold"
                 style={{
                   textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.6)'
                 }}
               >
-                Buildtecture — where design meets durability
+                Buildtecture
               </h1>
+              
+              <h2 
+                className="text-3xl md:text-4xl lg:text-5xl font-serif leading-tight text-white"
+                style={{
+                  textShadow: '2px 2px 8px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.6)'
+                }}
+              >
+                where design meets durability
+              </h2>
               
               <p 
                 className="text-xl lg:text-2xl leading-relaxed text-white"
@@ -178,13 +187,13 @@ export default function Home() {
               <div className="flex flex-wrap gap-4 pt-4">
                 <Link 
                   to="/projects" 
-                  className="bg-accent hover:bg-[#9C6D46] text-white font-semibold px-8 py-4 rounded-full transition-all duration-300 inline-flex items-center gap-2 shadow-xl hover:shadow-2xl transform hover:scale-105"
+                  className="bg-accent hover:bg-[#9C6D46] text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 inline-flex items-center gap-2 shadow-xl hover:shadow-2xl transform hover:scale-105"
                 >
                   Explore Projects
                 </Link>
                 <Link 
                   to="/contact" 
-                  className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-primary font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
+                  className="border-2 border-white bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-primary font-semibold px-8 py-4 rounded-lg transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:scale-105"
                 >
                   Get Quote
                 </Link>
@@ -244,20 +253,20 @@ export default function Home() {
       </section>
 
       {/* Portfolio Section */}
-      <section className="section-spacing bg-main">
-        <div className="container-custom">
+      <section className="py-16 bg-main">
+        <div className="max-w-[1400px] mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-4xl lg:text-5xl font-serif text-primary mb-4">Portfolio</h2>
             <p className="text-xl text-secondary">Our Recent Projects</p>
           </motion.div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {portfolio.map((project, index) => (
               <motion.div
                 key={project.title}
@@ -274,8 +283,8 @@ export default function Home() {
                     className="portfolio-image-ref w-full h-full object-cover"
                   />
                 </div>
-                <div className="p-6 bg-white rounded-b-xl">
-                  <h3 className="font-semibold text-primary text-lg mb-1">{project.title}</h3>
+                <div className="p-5 bg-white rounded-b-xl">
+                  <h3 className="font-semibold text-primary text-base mb-1">{project.title}</h3>
                   <p className="text-secondary text-sm">{project.category}</p>
                 </div>
               </motion.div>
@@ -285,96 +294,59 @@ export default function Home() {
       </section>
 
       {/* Client Testimonials Section */}
-      <section className="section-spacing bg-alternate">
-        <div className="container-custom">
+      <section className="py-16 bg-alternate">
+        <div className="max-w-[1400px] mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <h2 className="text-4xl lg:text-5xl font-serif text-primary mb-8">Client Testimonials</h2>
           </motion.div>
           
-          <div className="max-w-6xl mx-auto relative">
-            <div className="grid md:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  viewport={{ once: true }}
-                  className="testimonial-ref"
-                >
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-accent text-accent" />
-                    ))}
-                  </div>
-                  
-                  <blockquote className="text-secondary mb-6 leading-relaxed text-sm">
-                    "{testimonial.review}"
-                  </blockquote>
-                  
-                  <div>
-                    <div className="font-semibold text-primary">
-                      {testimonial.name}
-                    </div>
-                    <div className="text-secondary text-sm">
-                      {testimonial.company}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-            
-            <div className="flex justify-center mt-8 space-x-2">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentTestimonial ? 'bg-accent' : 'bg-gray-300'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Process Section */}
-      <section className="section-spacing bg-main">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl lg:text-5xl font-serif text-primary mb-8">Our Process</h2>
-          </motion.div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-            {processSteps.map((step, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((testimonial, index) => (
               <motion.div
-                key={step.title}
+                key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="process-card-ref"
+                className="testimonial-ref h-full"
               >
-                <div className="process-icon-ref mb-6">
-                  <step.icon className="w-10 h-10" />
+                <div className="flex mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-accent text-accent" />
+                  ))}
                 </div>
-                <div className="text-5xl font-serif text-accent mb-4">{step.number}</div>
-                <h3 className="text-xl font-semibold text-primary mb-4">{step.title}</h3>
-                <p className="text-secondary leading-relaxed text-sm">{step.description}</p>
+                
+                <blockquote className="text-secondary mb-6 leading-relaxed">
+                  "{testimonial.review}"
+                </blockquote>
+                
+                <div>
+                  <div className="font-semibold text-primary">
+                    {testimonial.name}
+                  </div>
+                  <div className="text-secondary text-sm">
+                    {testimonial.company}
+                  </div>
+                </div>
               </motion.div>
+            ))}
+          </div>
+          
+          <div className="flex justify-center mt-8 space-x-2">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentTestimonial(index)}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  index === currentTestimonial ? 'bg-accent' : 'bg-gray-300'
+                }`}
+              />
             ))}
           </div>
         </div>
