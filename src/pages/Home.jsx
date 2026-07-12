@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { 
@@ -17,16 +17,104 @@ import {
   Facebook,
   Instagram,
   Linkedin,
-  Youtube,
-  ChevronLeft,
-  ChevronRight,
-  TrendingUp,
-  Award,
-  Target
+  Youtube
 } from 'lucide-react'
+
+// Projects data for Featured Projects carousel
+const featuredProjects = [
+  {
+    id: 1,
+    title: 'Mr. Shridhar Residence',
+    category: 'Residential',
+    image: '/Mr.Shridhar/living room.jpg',
+    slug: 'mr-shridhar-residence'
+  },
+  {
+    id: 2,
+    title: "William John's Pizza",
+    category: 'Commercial',
+    image: "/William john's pizza/elevation render 2.jpg",
+    slug: 'william-johns-pizza'
+  },
+  {
+    id: 3,
+    title: 'Mr. Rohan Velani Residence',
+    category: 'Residential',
+    image: '/Mr. Rohan Velani/daughter room 2.jpg',
+    slug: 'mr-rohan-velani-residence'
+  },
+  {
+    id: 4,
+    title: 'Mr. Ram Murat Project',
+    category: 'Residential',
+    image: '/Mr. Ram Murat/updated view 2.jpg',
+    slug: 'mr-ram-murat-residence'
+  },
+  {
+    id: 5,
+    title: 'Mr. Shiva Residence',
+    category: 'Residential',
+    image: '/Mr.Shiva/L1 01.jpg',
+    slug: 'mr-shiva-residence'
+  }
+]
+
+// Portfolio images for infinite scroll
+const portfolioImages = [
+  { 
+    image: '/Mr.Shridhar/living room.jpg', 
+    slug: 'mr-shridhar-residence',
+    title: 'Modern Luxury Villa',
+    description: 'A contemporary luxury residence designed for comfort and elegance.'
+  },
+  { 
+    image: "/William john's pizza/elevation render 2.jpg", 
+    slug: 'william-johns-pizza',
+    title: 'Commercial Building',
+    description: 'Modern commercial architecture focused on innovation and efficiency.'
+  },
+  { 
+    image: '/Mr. Rohan Velani/daughter room 2.jpg', 
+    slug: 'mr-rohan-velani-residence',
+    title: 'Minimal Bedroom Design',
+    description: 'A peaceful bedroom featuring clean lines and premium finishes.'
+  },
+  { 
+    image: '/Mr. Ram Murat/updated view 2.jpg', 
+    slug: 'mr-ram-murat-residence',
+    title: 'Modern Luxury Villa',
+    description: 'A contemporary luxury residence designed for comfort and elegance.'
+  },
+  { 
+    image: '/Mr.Shridhar/MASTER BEDROOM OP 2.jpg', 
+    slug: 'mr-shridhar-residence',
+    title: 'Premium Interior Design',
+    description: 'Elegant interior spaces crafted with modern aesthetics and functionality.'
+  },
+  { 
+    image: '/Mr.Shridhar/kitchen-5.jpg', 
+    slug: 'mr-shridhar-residence',
+    title: 'Premium Interior Design',
+    description: 'Elegant interior spaces crafted with modern aesthetics and functionality.'
+  },
+  { 
+    image: '/Mr.Shridhar/1ST BEDROOM VIEW.jpg', 
+    slug: 'mr-shridhar-residence',
+    title: 'Minimal Bedroom Design',
+    description: 'A peaceful bedroom featuring clean lines and premium finishes.'
+  },
+  { 
+    image: '/Mr.Shiva/L1 01.jpg', 
+    slug: 'mr-shiva-residence',
+    title: 'Modern Luxury Villa',
+    description: 'A contemporary luxury residence designed for comfort and elegance.'
+  }
+]
 
 export default function Home() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+  const carouselRef = useRef(null)
 
   // Testimonial data
   const testimonials = [
@@ -76,29 +164,6 @@ export default function Home() {
     }
   ]
 
-  const portfolio = [
-    {
-      title: "Mr. Shridhar Residence",
-      category: "Residential",
-      image: "/Mr.Shridhar/living room.jpg"
-    },
-    {
-      title: "William John's Pizza",
-      category: "Commercial",
-      image: "/William john's pizza/elevation render 2.jpg"
-    },
-    {
-      title: "Mr. Rohan Velani Residence",
-      category: "Residential", 
-      image: "/Mr. Rohan Velani/daughter room 2.jpg"
-    },
-    {
-      title: "Mr. Ram Murat Project",
-      category: "Residential",
-      image: "/Mr. Ram Murat/updated view 2.jpg"
-    }
-  ]
-
   const processSteps = [
     {
       number: "01",
@@ -125,14 +190,6 @@ export default function Home() {
       icon: CheckCircle
     }
   ]
-
-  const nextTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
-  }
-
-  const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)
-  }
 
   return (
     <div className="bg-main">
@@ -252,7 +309,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Portfolio Section */}
+      {/* Featured Projects Carousel Section */}
       <section className="py-16 bg-main">
         <div className="max-w-[1400px] mx-auto px-4">
           <motion.div
@@ -262,39 +319,136 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl lg:text-5xl font-serif text-primary mb-4">Portfolio</h2>
-            <p className="text-xl text-secondary">Our Recent Projects</p>
+            <h2 className="text-4xl lg:text-5xl font-serif text-primary mb-4">Featured Projects</h2>
+            <p className="text-xl text-secondary">Our Latest Work</p>
           </motion.div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {portfolio.map((project, index) => (
-              <motion.div
-                key={project.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                viewport={{ once: true }}
-                className="portfolio-card-ref group cursor-pointer"
-              >
-                <div className="aspect-[4/3] overflow-hidden rounded-t-xl">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="portfolio-image-ref w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-5 bg-white rounded-b-xl">
-                  <h3 className="font-semibold text-primary text-base mb-1">{project.title}</h3>
-                  <p className="text-secondary text-sm">{project.category}</p>
-                </div>
-              </motion.div>
-            ))}
+
+          <div 
+            className="relative overflow-hidden"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            <motion.div
+              ref={carouselRef}
+              className="flex gap-6"
+              animate={{
+                x: isPaused ? undefined : [0, -100 * featuredProjects.length]
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 30,
+                  ease: "linear"
+                }
+              }}
+            >
+              {[...featuredProjects, ...featuredProjects].map((project, index) => (
+                <Link
+                  key={`${project.id}-${index}`}
+                  to={`/projects/${project.slug}`}
+                  className="flex-shrink-0 w-[calc(100%-2rem)] sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.125rem)]"
+                >
+                  <motion.div
+                    whileHover={{ y: -8 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group"
+                  >
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <motion.img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.4 }}
+                      />
+                    </div>
+                    <div className="p-5">
+                      <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium mb-3">
+                        {project.category}
+                      </span>
+                      <h3 className="font-semibold text-primary text-base group-hover:text-accent transition-colors">
+                        {project.title}
+                      </h3>
+                    </div>
+                  </motion.div>
+                </Link>
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
 
+      {/* Portfolio Section - Infinite Scroll Images Only */}
+      <section className="py-16 bg-alternate overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-4 mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <h2 className="text-4xl lg:text-5xl font-serif text-primary mb-4">Portfolio</h2>
+            <p className="text-xl text-secondary">Our Recent Projects</p>
+          </motion.div>
+        </div>
+
+        <div className="relative">
+          <motion.div
+            className="flex gap-6"
+            animate={{
+              x: [0, -100 * portfolioImages.length]
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 40,
+                ease: "linear"
+              }
+            }}
+          >
+            {[...portfolioImages, ...portfolioImages, ...portfolioImages].map((item, index) => (
+              <Link
+                key={index}
+                to={`/projects/${item.slug}`}
+                className="flex-shrink-0 w-80"
+              >
+                <motion.div
+                  whileHover={{ 
+                    y: -8,
+                    boxShadow: "0 20px 40px rgba(0,0,0,0.2)"
+                  }}
+                  transition={{ duration: 0.3 }}
+                  className="rounded-xl overflow-hidden shadow-lg bg-white"
+                >
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <motion.img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                      whileHover={{ scale: 1.15 }}
+                      transition={{ duration: 0.4 }}
+                    />
+                  </div>
+                  <div className="p-5 text-center">
+                    <h3 className="text-lg font-semibold text-primary mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-[#666666]" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                      {item.description}
+                    </p>
+                  </div>
+                </motion.div>
+              </Link>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       {/* Client Testimonials Section */}
-      <section className="py-16 bg-alternate">
+      <section className="py-16 bg-main">
         <div className="max-w-[1400px] mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -337,16 +491,39 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Our Process Section */}
+      <section className="section-spacing bg-alternate">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-5xl font-serif text-primary mb-8">Our Process</h2>
+          </motion.div>
           
-          <div className="flex justify-center mt-8 space-x-2">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentTestimonial(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === currentTestimonial ? 'bg-accent' : 'bg-gray-300'
-                }`}
-              />
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+            {processSteps.map((step, index) => (
+              <motion.div
+                key={step.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="process-card-ref"
+              >
+                <div className="process-icon-ref mb-6">
+                  <step.icon className="w-10 h-10" />
+                </div>
+                <div className="text-5xl font-serif text-accent mb-4">{step.number}</div>
+                <h3 className="text-xl font-semibold text-primary mb-4">{step.title}</h3>
+                <p className="text-secondary leading-relaxed text-sm">{step.description}</p>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -406,7 +583,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="max-w-3xl mx-auto"
           >
-            <h2 className="text-4xl lg:text-5xl font-serif mb-8" style={{ color: '#D1CBC3' }}>
+            <h2 className="text-4xl lg:text-5xl font-serif mb-8">
               Let's Build Your Dream Project
             </h2>
             <Link to="/contact" className="btn-primary inline-flex items-center gap-2">

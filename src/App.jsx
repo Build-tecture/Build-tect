@@ -2,6 +2,7 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import { QuoteProvider } from './contexts/QuoteContext'
 import { LoadingProvider, useLoading } from './contexts/LoadingContext'
 import LoadingAnimation from './components/ui/LoadingAnimation'
+import WhatsAppButton from './components/ui/WhatsAppButton'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import Home from './pages/Home'
@@ -11,6 +12,8 @@ import ServiceDetail from './pages/ServiceDetail'
 import Projects from './pages/Projects'
 import ProjectDetail from './pages/ProjectDetail'
 import Package from './pages/Package'
+import Packages from './pages/Packages'
+import PackageDetail from './pages/PackageDetail'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import Contact from './pages/Contact'
@@ -32,6 +35,10 @@ function AppContent() {
         Skip to main content
       </a>
       <Header />
+      
+      {/* WhatsApp Floating Button */}
+      <WhatsAppButton />
+      
       <main id="main-content" className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -40,7 +47,8 @@ function AppContent() {
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:slug" element={<ProjectDetail />} />
-          <Route path="/packages/:packageType" element={<Package />} />
+          <Route path="/packages" element={<Packages />} />
+          <Route path="/packages/:packageType" element={<PackageDetail />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/contact" element={<Contact />} />
