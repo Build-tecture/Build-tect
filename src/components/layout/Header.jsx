@@ -48,7 +48,7 @@ export default function Header() {
           {/* Logo - Far Left */}
           <div className="flex-shrink-0">
             <Link to="/" className="block">
-              <div className="text-2xl font-bold text-primary">
+              <div className="text-2xl font-bold" style={{ color: '#F5F0E8' }}>
                 Buildtecture
               </div>
             </Link>
@@ -64,7 +64,10 @@ export default function Header() {
                   onMouseEnter={() => setOpenDropdown(item.name)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
-                  <button className="text-sm font-medium text-primary hover:text-accent transition-colors">
+                  <button className="text-sm font-medium transition-colors" style={{ color: '#F5F0E8' }}
+                    onMouseEnter={e => e.currentTarget.style.color = '#D9B08C'}
+                    onMouseLeave={e => e.currentTarget.style.color = '#F5F0E8'}
+                  >
                     {item.name}
                   </button>
                   <AnimatePresence>
@@ -92,7 +95,8 @@ export default function Header() {
                 <NavigationLink
                   key={item.name}
                   to={item.href}
-                  className="text-sm font-medium text-primary hover:text-accent transition-colors"
+                  className="text-sm font-medium transition-colors hover:text-accent"
+                  style={{ color: '#F5F0E8' }}
                 >
                   {item.name}
                 </NavigationLink>
@@ -114,7 +118,8 @@ export default function Header() {
           <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 text-primary hover:text-accent"
+              className="p-2 hover:text-accent transition-colors"
+              style={{ color: '#F5F0E8' }}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -128,14 +133,16 @@ export default function Header() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-white border-t"
+              className="lg:hidden border-t border-white/10"
+              style={{ backgroundColor: '#111111' }}
             >
               <div className="py-4 space-y-2">
                 {navigation.map((item) => (
                   <NavigationLink
                     key={item.name}
                     to={item.href}
-                    className="block px-4 py-2 text-primary hover:text-accent"
+                    className="block px-4 py-2 hover:text-accent transition-colors"
+                    style={{ color: '#F5F0E8' }}
                   >
                     {item.name}
                   </NavigationLink>
