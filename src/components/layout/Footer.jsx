@@ -33,7 +33,7 @@ const social = [
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-900 text-white">
+    <footer style={{ backgroundColor: '#111111' }} className="text-white">
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
@@ -44,7 +44,7 @@ export default function Footer() {
               </div>
               <span className="text-xl font-bold">Buildtecture</span>
             </Link>
-            <p className="text-gray-300 mb-6 max-w-md">
+            <p className="mb-6 max-w-md" style={{ color: '#F5F0E8' }}>
               Engineering beautiful spaces through innovative architectural design, 
               quality construction, and premium materials. Built to last, delivered on time.
             </p>
@@ -53,17 +53,17 @@ export default function Footer() {
             <div className="space-y-3 mb-6">
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-accent" />
-                <span className="text-gray-300">123 Architecture Complex, Bandra Kurla Complex, Mumbai, Maharashtra 400051</span>
+                <span style={{ color: '#F5F0E8' }}>123 Architecture Complex, Bandra Kurla Complex, Mumbai, Maharashtra 400051</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-accent" />
-                <a href="tel:+919876543210" className="text-gray-300 hover:text-white transition-colors">
+                <a href="tel:+919876543210" className="transition-colors hover:text-white" style={{ color: '#F5F0E8' }}>
                   +91 98765 43210
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-accent" />
-                <a href="mailto:info@buildtecture.in" className="text-gray-300 hover:text-white transition-colors">
+                <a href="mailto:info@buildtecture.in" className="transition-colors hover:text-white" style={{ color: '#F5F0E8' }}>
                   info@buildtecture.in
                 </a>
               </div>
@@ -75,7 +75,8 @@ export default function Footer() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="transition-colors hover:text-white"
+                  style={{ color: '#F5F0E8' }}
                   aria-label={item.name}
                 >
                   <item.icon className="w-5 h-5" />
@@ -86,13 +87,14 @@ export default function Footer() {
 
           {/* Navigation Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Company</h3>
+            <h3 className="text-lg font-semibold mb-4" style={{ color: '#F5F0E8' }}>Company</h3>
             <ul className="space-y-2">
               {navigation.company.map((item) => (
                 <li key={item.name}>
                   <Link
                     to={item.href}
-                    className="text-gray-300 hover:text-white transition-colors"
+                    className="transition-colors hover:text-white"
+                    style={{ color: '#F5F0E8' }}
                   >
                     {item.name}
                   </Link>
@@ -102,13 +104,14 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Services</h3>
+            <h3 className="text-lg font-semibold mb-4" style={{ color: '#F5F0E8' }}>Services</h3>
             <ul className="space-y-2">
               {navigation.services.map((item) => (
                 <li key={item.name}>
                   <Link
                     to={item.href}
-                    className="text-gray-300 hover:text-white transition-colors"
+                    className="transition-colors hover:text-white"
+                    style={{ color: '#F5F0E8' }}
                   >
                     {item.name}
                   </Link>
@@ -118,13 +121,14 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Resources</h3>
+            <h3 className="text-lg font-semibold mb-4" style={{ color: '#F5F0E8' }}>Resources</h3>
             <ul className="space-y-2">
               {navigation.resources.map((item) => (
                 <li key={item.name}>
                   <Link
                     to={item.href}
-                    className="text-gray-300 hover:text-white transition-colors"
+                    className="transition-colors hover:text-white"
+                    style={{ color: '#F5F0E8' }}
                   >
                     {item.name}
                   </Link>
@@ -134,7 +138,7 @@ export default function Footer() {
             
             {/* Newsletter Signup */}
             <div className="mt-8">
-              <h4 className="text-sm font-semibold mb-3">Newsletter</h4>
+              <h4 className="text-sm font-semibold mb-3" style={{ color: '#F5F0E8' }}>Newsletter</h4>
               <form className="flex flex-col space-y-2">
                 <input
                   type="email"
@@ -154,15 +158,15 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm">
+        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-sm" style={{ color: '#F5F0E8' }}>
             © 2024 Buildtecture. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <Link to="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">
+            <Link to="/privacy" className="text-sm transition-colors hover:text-white" style={{ color: '#F5F0E8' }}>
               Privacy Policy
             </Link>
-            <Link to="/terms" className="text-gray-400 hover:text-white text-sm transition-colors">
+            <Link to="/terms" className="text-sm transition-colors hover:text-white" style={{ color: '#F5F0E8' }}>
               Terms of Service
             </Link>
           </div>

@@ -19,7 +19,6 @@
   
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
-    color: #232323;
     @apply font-semibold leading-tight;
   }
   
@@ -146,7 +145,7 @@
 
   /* Navbar styling to match reference */
   .navbar-ref {
-    background-color: rgba(247, 245, 241, 0.95);
+    background-color: #111111;
     backdrop-filter: blur(20px);
     height: 80px;
   }

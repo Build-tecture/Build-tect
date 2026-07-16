@@ -120,6 +120,7 @@ export default function Hero({ background = true }) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
               className="block sm:inline"
+              style={{ fontFamily: "'Montserrat', sans-serif", fontWeight: 700, color: '#F5F0E8' }}
             >
               Buildtecture —{' '}
             </motion.span>
