@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react'
 
@@ -32,6 +33,14 @@ const social = [
 ]
 
 export default function Footer() {
+  const [subscribed, setSubscribed] = useState(false)
+
+  const handleSubscribe = (e) => {
+    e.preventDefault()
+    setSubscribed(true)
+    e.currentTarget.reset()
+  }
+
   return (
     <footer style={{ backgroundColor: '#111111' }} className="text-white">
       <div className="container-custom py-16">
@@ -53,12 +62,12 @@ export default function Footer() {
             <div className="space-y-3 mb-6">
               <div className="flex items-center space-x-3">
                 <MapPin className="w-5 h-5 text-accent" />
-                <span style={{ color: '#F5F0E8' }}>123 Architecture Complex, Bandra Kurla Complex, Mumbai, Maharashtra 400051</span>
+                <span style={{ color: '#F5F0E8' }}>Bengaluru, Karnataka, India</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-accent" />
-                <a href="tel:+919876543210" className="transition-colors hover:text-white" style={{ color: '#F5F0E8' }}>
-                  +91 98765 43210
+                <a href="tel:+919606737378" className="transition-colors hover:text-white" style={{ color: '#F5F0E8' }}>
+                  +91 96067 37378
                 </a>
               </div>
               <div className="flex items-center space-x-3">
@@ -139,20 +148,29 @@ export default function Footer() {
             {/* Newsletter Signup */}
             <div className="mt-8">
               <h4 className="text-sm font-semibold mb-3" style={{ color: '#F5F0E8' }}>Newsletter</h4>
-              <form className="flex flex-col space-y-2">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="px-3 py-2 bg-gray-800 border border-gray-700 rounded text-sm focus:outline-none focus:border-brand-600"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="bg-brand-600 hover:bg-brand-700 text-white px-3 py-2 rounded text-sm transition-colors"
-                >
-                  Subscribe
-                </button>
-              </form>
+              {subscribed ? (
+                <p className="text-sm" role="status" style={{ color: '#D9B08C' }}>
+                  Thanks — we&apos;ll keep you posted.
+                </p>
+              ) : (
+                <form className="flex flex-col space-y-2" onSubmit={handleSubscribe}>
+                  <label htmlFor="footer-newsletter-email" className="sr-only">Email address</label>
+                  <input
+                    id="footer-newsletter-email"
+                    name="email"
+                    type="email"
+                    placeholder="Enter your email"
+                    className="px-3 py-2 bg-gray-800 border border-gray-700 rounded text-sm text-white placeholder-gray-400 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="bg-accent hover:bg-[#9C6D46] text-white px-3 py-2 rounded text-sm font-medium transition-colors"
+                  >
+                    Subscribe
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
@@ -160,7 +178,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm" style={{ color: '#F5F0E8' }}>
-            © 2024 Buildtecture. All rights reserved.
+            © {new Date().getFullYear()} Buildtecture. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/privacy" className="text-sm transition-colors hover:text-white" style={{ color: '#F5F0E8' }}>

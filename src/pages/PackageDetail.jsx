@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { ArrowLeft, Check } from 'lucide-react'
 import { packagesData } from '../data/packagesData'
 import Lightbox from '../components/ui/Lightbox'
+import SEO from '../components/ui/SEO'
 
 export default function PackageDetail() {
   const { packageType } = useParams()
@@ -65,6 +66,11 @@ export default function PackageDetail() {
 
   return (
     <div className="pt-20 bg-[#F7F5F1]">
+      <SEO
+        path={`/packages/${packageType}`}
+        title={packageData.name || packageData.title}
+        description={packageData.description}
+      />
       {/* Lightbox */}
       <Lightbox
         images={lightboxImages}
@@ -145,6 +151,8 @@ export default function PackageDetail() {
                         <img
                           src={design.image}
                           alt={design.title}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                         />
                       </div>
@@ -225,6 +233,8 @@ export default function PackageDetail() {
                           <img
                             src={imageData.src}
                             alt={imageData.title}
+                            loading="lazy"
+                            decoding="async"
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                           />
                           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">

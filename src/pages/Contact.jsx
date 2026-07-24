@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { MapPin, Phone, Mail, Clock, Send, Upload, X } from 'lucide-react'
 import { useQuote } from '../contexts/QuoteContext'
+import SEO from '../components/ui/SEO'
 
 const projectTypes = [
   'Residential Design',
@@ -69,6 +70,11 @@ export default function Contact() {
 
   return (
     <div className="pt-20">
+      <SEO
+        path="/contact"
+        title="Contact Us"
+        description="Get in touch with Buildtecture for architectural design, construction and renovation. Call +91 96067 37378 or request a free quote today."
+      />
       {/* Hero Section */}
       <section className="section-padding text-white" style={{ background: 'linear-gradient(to bottom right, #111827, #4B5563)' }}>
         <div className="container-custom text-center">
@@ -108,10 +114,8 @@ export default function Contact() {
                   <div>
                     <h3 className="font-semibold text-brand-900 mb-1">Address</h3>
                     <p className="text-muted">
-                      123 Architecture Complex<br />
-                      Bandra Kurla Complex<br />
-                      Mumbai, Maharashtra 400051<br />
-                      India
+                      Bengaluru<br />
+                      Karnataka, India
                     </p>
                   </div>
                 </div>
@@ -120,8 +124,8 @@ export default function Contact() {
                   <Phone className="w-6 h-6 text-brand-600 mt-1 flex-shrink-0" />
                   <div>
                     <h3 className="font-semibold text-brand-900 mb-1">Phone</h3>
-                    <a href="tel:+919876543210" className="text-muted hover:text-brand-600 transition-colors">
-                      +91 98765 43210
+                    <a href="tel:+919606737378" className="text-muted hover:text-brand-600 transition-colors">
+                      +91 96067 37378
                     </a>
                   </div>
                 </div>

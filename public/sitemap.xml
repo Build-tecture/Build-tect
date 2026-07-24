@@ -1,69 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://buildtecture.com/</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://www.buildtecture.in/</loc>
+    <lastmod>2026-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://buildtecture.com/about</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://www.buildtecture.in/about</loc>
+    <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://buildtecture.com/services</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.buildtecture.in/services</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://buildtecture.com/services/architectural-design</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://www.buildtecture.in/services/architectural-design</loc>
+    <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://buildtecture.com/services/construction</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://www.buildtecture.in/services/construction</loc>
+    <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://buildtecture.com/services/renovation</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://www.buildtecture.in/services/renovation</loc>
+    <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://buildtecture.com/services/materials-supply</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://www.buildtecture.in/services/materials-supply</loc>
+    <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://buildtecture.com/projects</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://www.buildtecture.in/projects</loc>
+    <lastmod>2026-07-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://buildtecture.com/materials</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.buildtecture.in/projects/mr-shridhar-residence</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.buildtecture.in/projects/mr-ram-murat-residence</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.buildtecture.in/projects/mr-rohan-velani-residence</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.buildtecture.in/projects/mr-shiva-residence</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.buildtecture.in/projects/william-johns-pizza</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.buildtecture.in/packages</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://buildtecture.com/blog</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>daily</changefreq>
+    <loc>https://www.buildtecture.in/packages/basic</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://buildtecture.com/contact</loc>
-    <lastmod>2024-01-15</lastmod>
+    <loc>https://www.buildtecture.in/packages/classic</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.buildtecture.in/packages/premium</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.buildtecture.in/blog</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.buildtecture.in/blog/sustainable-architecture-building-for-future</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.buildtecture.in/blog/art-of-material-selection-modern-design</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.buildtecture.in/blog/smart-home-integration-architectural-planning</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.buildtecture.in/blog/renovation-vs-new-construction-right-choice</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.buildtecture.in/blog/maximizing-natural-light-urban-spaces</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.buildtecture.in/blog/future-of-construction-emerging-technologies</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.buildtecture.in/contact</loc>
+    <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.buildtecture.in/privacy</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.buildtecture.in/terms</loc>
+    <lastmod>2026-07-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

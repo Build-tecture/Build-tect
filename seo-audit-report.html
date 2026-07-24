@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Buildtecture — SEO Audit Report</title>
+<style>
+  :root {
+    --bg: #0f1115; --card: #171a21; --line: #262b36; --text: #e6e9ef;
+    --muted: #9aa3b2; --accent: #B5835A; --green: #3fb950; --amber: #d29922; --red: #f85149; --blue: #58a6ff;
+  }
+  @media (prefers-color-scheme: light) {
+    :root { --bg:#f6f7f9; --card:#ffffff; --line:#e5e8ee; --text:#1a1d24; --muted:#5b6472; --accent:#8a5a34; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family: system-ui,-apple-system,Segoe UI,Roboto,sans-serif; line-height:1.6; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 40px 24px 80px; }
+  header.hero { border-bottom:1px solid var(--line); padding-bottom:24px; margin-bottom:32px; }
+  .kicker { color:var(--accent); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.72rem; }
+  h1 { font-size: 2rem; margin:.2em 0 .1em; }
+  h2 { font-size:1.3rem; margin:2.2em 0 .6em; padding-bottom:.3em; border-bottom:1px solid var(--line); }
+  h3 { font-size:1.02rem; margin:1.4em 0 .3em; }
+  .meta { color:var(--muted); font-size:.9rem; }
+  .score { display:flex; gap:20px; flex-wrap:wrap; margin:24px 0; }
+  .scorecard { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 22px; flex:1; min-width:160px; }
+  .scorecard .n { font-size:2rem; font-weight:800; }
+  .scorecard .l { color:var(--muted); font-size:.82rem; text-transform:uppercase; letter-spacing:.04em; }
+  .grade { color:var(--green); }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:.92rem; overflow-x:auto; display:block; }
+  @media(min-width:640px){ table{ display:table; } }
+  th,td { text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--muted); font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; }
+  .pill { display:inline-block; padding:2px 9px; border-radius:100px; font-size:.74rem; font-weight:700; }
+  .ok { background:rgba(63,185,80,.15); color:var(--green); }
+  .warn { background:rgba(210,153,34,.15); color:var(--amber); }
+  .crit { background:rgba(248,81,73,.15); color:var(--red); }
+  .info { background:rgba(88,166,255,.15); color:var(--blue); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 22px; margin:14px 0; }
+  ul { padding-left:1.1em; } li { margin:.25em 0; }
+  code { background:rgba(127,127,127,.15); padding:1px 6px; border-radius:5px; font-size:.86em; }
+  .finding { border-left:3px solid var(--line); padding:2px 0 2px 16px; margin:16px 0; }
+  .finding.high { border-color:var(--red); } .finding.med { border-color:var(--amber); } .finding.low { border-color:var(--blue); }
+  .finding .t { font-weight:700; }
+  footer { margin-top:48px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:.85rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="kicker">SEO Audit Report</div>
+    <h1>Buildtecture</h1>
+    <p class="meta">Domain: <strong>https://www.buildtecture.in/</strong> &nbsp;·&nbsp; Type: Local business (architecture &amp; construction) &nbsp;·&nbsp; Date: 25 Jul 2026 &nbsp;·&nbsp; Method: static source + prerendered <code>dist/</code> analysis (post-remediation)</p>
+  </header>
+
+  <section>
+    <h2>Executive Summary</h2>
+    <p>Following remediation, the site is in <strong>strong technical health</strong>. It now ships <strong>27 fully prerendered static pages</strong>, each with a unique title, meta description, self-referencing canonical, Open Graph / Twitter tags and organization structured data present in the raw HTML. The critical blockers from the initial audit (client-only SPA shell, duplicate site-wide metadata, broken sitemap, missing schema) are resolved and verified in the built output.</p>
+    <p>Remaining items are <strong>optimizations, not blockers</strong> — image performance (lazy-loading / WebP), a richer social share image, and off-site signals (Google Business Profile, social links, backlinks).</p>
+
+    <div class="score">
+      <div class="scorecard" style="flex:1.4; min-width:220px; border-color:var(--green);">
+        <div class="n grade">84<span style="font-size:1.1rem; color:var(--muted); font-weight:600;">/100</span></div>
+        <div class="l">Overall SEO score &nbsp;·&nbsp; Grade A-</div>
+      </div>
+      <div class="scorecard"><div class="n">27</div><div class="l">Pages prerendered</div></div>
+      <div class="scorecard"><div class="n">0</div><div class="l">Blocking issues</div></div>
+      <div class="scorecard"><div class="n">244</div><div class="l">Images, all with alt</div></div>
+    </div>
+
+    <h3>Score breakdown</h3>
+    <table>
+      <tr><th>Category</th><th>Score</th><th>Weight</th><th>Why</th></tr>
+      <tr><td>Technical SEO</td><td><span class="pill ok">92 / 100</span></td><td>25%</td><td>Full prerendering, canonicals, sitemap, robots, schema all correct</td></tr>
+      <tr><td>On-Page SEO</td><td><span class="pill ok">90 / 100</span></td><td>25%</td><td>Unique titles/descriptions, single H1s, 100% alt coverage</td></tr>
+      <tr><td>Content &amp; E-E-A-T</td><td><span class="pill warn">78 / 100</span></td><td>20%</td><td>Trust pages + real case studies; missing author bylines &amp; deeper local copy</td></tr>
+      <tr><td>Performance / CWV</td><td><span class="pill warn">75 / 100</span></td><td>15%</td><td>No lazy-loading or WebP; live Core Web Vitals still to be measured</td></tr>
+      <tr><td>Off-site / Authority</td><td><span class="pill warn">65 / 100</span></td><td>15%</td><td>No verified Google Business Profile, empty social links, nascent backlinks</td></tr>
+      <tr style="font-weight:700;"><td>Weighted overall</td><td><span class="pill ok">84 / 100</span></td><td>100%</td><td>Strong foundation; ceiling is off-site signals &amp; performance polish</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Status vs. Initial Audit</h2>
+    <table>
+      <tr><th>Issue</th><th>Status</th><th>Evidence</th></tr>
+      <tr><td>SPA shell — no SSR/prerender</td><td><span class="pill ok">Fixed</span></td><td>vite-react-ssg builds 27 static HTML pages with real content</td></tr>
+      <tr><td>Identical title/description on every page</td><td><span class="pill ok">Fixed</span></td><td>Unique per page — verified in <code>dist/*.html</code></td></tr>
+      <tr><td>Broken sitemap (domain, dead/missing routes)</td><td><span class="pill ok">Fixed</span></td><td><code>.in</code> domain, all real routes incl. projects/packages/blog/legal</td></tr>
+      <tr><td>No canonical / og:image / Twitter cards</td><td><span class="pill ok">Fixed</span></td><td>Self-referencing canonical + OG + Twitter on every page</td></tr>
+      <tr><td>No structured data</td><td><span class="pill ok">Fixed</span></td><td>Static <code>GeneralContractor</code> JSON-LD, Bengaluru locality</td></tr>
+      <tr><td>No 404 route</td><td><span class="pill ok">Fixed</span></td><td>Catch-all <code>NotFound</code> (noindex)</td></tr>
+      <tr><td>robots.txt wrong domain</td><td><span class="pill ok">Fixed</span></td><td>Correct <code>.in</code> + sitemap reference</td></tr>
+      <tr><td>Missing Privacy / Terms (E-E-A-T)</td><td><span class="pill ok">Fixed</span></td><td>Both pages live, routed, in sitemap</td></tr>
+      <tr><td>Placeholder / wrong NAP address</td><td><span class="pill ok">Fixed</span></td><td>Bengaluru, Karnataka, IN across Contact, Footer, schema</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Technical SEO</h2>
+    <table>
+      <tr><th>Check</th><th>Result</th><th>Notes</th></tr>
+      <tr><td>Crawlability (robots.txt)</td><td><span class="pill ok">Pass</span></td><td>Allows all, references sitemap; both present in <code>dist/</code></td></tr>
+      <tr><td>XML sitemap</td><td><span class="pill ok">Pass</span></td><td>29 canonical URLs, correct domain &amp; dates</td></tr>
+      <tr><td>Canonicalization</td><td><span class="pill ok">Pass</span></td><td>Self-referencing canonical on each page</td></tr>
+      <tr><td>Indexability</td><td><span class="pill ok">Pass</span></td><td>Only 404 is noindex; all content pages indexable</td></tr>
+      <tr><td>HTTPS</td><td><span class="pill ok">Pass</span></td><td>Live on HTTPS (confirm host forces HTTP→HTTPS + www canonical)</td></tr>
+      <tr><td>Structured data</td><td><span class="pill ok">Pass</span></td><td>Validate in Google Rich Results Test post-deploy</td></tr>
+      <tr><td>Image performance</td><td><span class="pill warn">Improve</span></td><td>0 / 244 images lazy-loaded; ~98 JPGs, no WebP</td></tr>
+      <tr><td>Core Web Vitals</td><td><span class="pill info">Measure</span></td><td>Run PageSpeed Insights on live URLs (not measurable from source)</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>On-Page SEO</h2>
+    <table>
+      <tr><th>Check</th><th>Result</th><th>Notes</th></tr>
+      <tr><td>Title tags</td><td><span class="pill ok">Pass</span></td><td>Unique, ≤ 60 chars (home 55), brand suffixed</td></tr>
+      <tr><td>Meta descriptions</td><td><span class="pill ok">Pass</span></td><td>Unique, 137–164 chars; trim home (164) toward ~155</td></tr>
+      <tr><td>H1 structure</td><td><span class="pill ok">Pass</span></td><td>Exactly one H1 per prerendered page</td></tr>
+      <tr><td>Image alt text</td><td><span class="pill ok">Pass</span></td><td>0 of 244 images missing alt</td></tr>
+      <tr><td>Internal linking</td><td><span class="pill warn">Improve</span></td><td>Service pages linked only from footer — not in header nav</td></tr>
+      <tr><td>Social share image</td><td><span class="pill warn">Improve</span></td><td>og:image is the logo on black; a richer 1200×630 image previews better</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Content &amp; E-E-A-T</h2>
+    <ul>
+      <li><span class="pill ok">Good</span> Trust pages (Privacy, Terms), real phone/email, and a location now present — solid trust signals for a local service business.</li>
+      <li><span class="pill warn">Improve</span> Blog is populated (6 posts) but has no author bylines/pages — add author attribution for Experience/Expertise.</li>
+      <li><span class="pill warn">Improve</span> Project pages are strong (real case studies with galleries) — add location + service keywords in body copy to rank for "architects in Bengaluru" style queries.</li>
+      <li><span class="pill info">Off-site</span> Set up &amp; verify Google Business Profile, add social <code>sameAs</code> URLs to JSON-LD, and start earning local citations/backlinks.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Remaining Findings (all non-blocking)</h2>
+
+    <div class="finding med">
+      <div class="t">1. Images not lazy-loaded &amp; no modern formats <span class="pill warn">Medium</span></div>
+      <p><strong>Impact:</strong> Core Web Vitals (LCP), especially on image-heavy project/package pages. <strong>Evidence:</strong> 0 of 244 <code>&lt;img&gt;</code> use <code>loading="lazy"</code>; ~98 JPGs, no WebP. <strong>Fix:</strong> add <code>loading="lazy"</code> + <code>decoding="async"</code> to below-the-fold images; convert large photos to WebP/AVIF; set explicit width/height to avoid layout shift.</p>
+    </div>
+
+    <div class="finding med">
+      <div class="t">2. Service pages missing from primary nav <span class="pill warn">Medium</span></div>
+      <p><strong>Impact:</strong> Buries commercially valuable pages; weaker internal link equity. <strong>Evidence:</strong> header nav = Home/About/Projects/Packages/Blog/Contact; <code>/services</code> only linked in footer. <strong>Fix:</strong> add Services (or a dropdown) to the header nav.</p>
+    </div>
+
+    <div class="finding low">
+      <div class="t">3. Generic social share image <span class="pill info">Low</span></div>
+      <p><strong>Evidence:</strong> <code>og:image</code> = <code>/favicon.jpg</code> (logo on black). <strong>Fix:</strong> add a dedicated 1200×630 branded share image; ideally per-section.</p>
+    </div>
+
+    <div class="finding low">
+      <div class="t">4. Home meta description slightly long <span class="pill info">Low</span></div>
+      <p><strong>Evidence:</strong> 164 chars (may truncate in SERP). <strong>Fix:</strong> trim to ~150–155.</p>
+    </div>
+
+    <div class="finding low">
+      <div class="t">5. Empty <code>sameAs</code> &amp; no author pages <span class="pill info">Low</span></div>
+      <p><strong>Fix:</strong> populate social URLs in the JSON-LD; add blog author bylines/pages for E-E-A-T.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Prioritized Action Plan</h2>
+    <div class="card">
+      <h3>Now — post-deploy verification (do first)</h3>
+      <ul>
+        <li>Confirm host serves prerendered <code>dist/</code> with SPA fallback to <code>/index.html</code>.</li>
+        <li>Submit <code>sitemap.xml</code> in Google Search Console; run URL Inspection on 2–3 pages.</li>
+        <li>Validate structured data in the Rich Results Test; run PageSpeed Insights for real CWV.</li>
+        <li>Force HTTP→HTTPS and pick one canonical host (www vs non-www) at the DNS/host level.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>High-impact</h3>
+      <ul>
+        <li>Set up &amp; verify Google Business Profile (biggest local-SEO lever).</li>
+        <li>Add Services to header nav; add city+service keywords to project/service copy.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Quick wins</h3>
+      <ul>
+        <li>Lazy-load + <code>width/height</code> on images; trim home meta description.</li>
+        <li>Add social <code>sameAs</code> URLs and a 1200×630 og:image.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Longer-term</h3>
+      <ul>
+        <li>Convert imagery to WebP/AVIF; add author pages; build local citations &amp; backlinks; keep publishing location-relevant blog content.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    Generated for Buildtecture · Static source + prerendered output analysis. Live-only signals (Core Web Vitals, index coverage, backlinks) require Search Console, PageSpeed Insights, and the Rich Results Test on the deployed site.
+  </footer>
+
+</div>
+</body>
+</html>

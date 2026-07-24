@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Calendar, User, ArrowRight } from 'lucide-react'
+import SEO from '../components/ui/SEO'
 
 const blogPosts = [
   {
@@ -82,6 +83,11 @@ export default function Blog() {
 
   return (
     <div className="pt-20">
+      <SEO
+        path="/blog"
+        title="Blog"
+        description="Insights on architecture, construction, materials and design from the Buildtecture team — practical guidance for building better spaces."
+      />
       {/* Hero Section */}
       <section className="section-padding text-white" style={{ background: 'linear-gradient(to bottom right, #111827, #4B5563)' }}>
         <div className="container-custom text-center">
@@ -116,6 +122,8 @@ export default function Blog() {
                 <img
                   src={blogPosts[0].image}
                   alt={blogPosts[0].title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-80 object-cover rounded-lg shadow-lg"
                 />
               </div>
@@ -195,6 +203,8 @@ export default function Blog() {
                     <img
                       src={post.image}
                       alt={post.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                     <div className="absolute top-4 left-4">

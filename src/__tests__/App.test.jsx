@@ -1,47 +1,55 @@
 import { render, screen } from '@testing-library/react'
-import { BrowserRouter } from 'react-router-dom'
+import { createMemoryRouter, RouterProvider } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import { describe, it, expect } from 'vitest'
-import App from '../App'
+import { routes } from '../App'
 
 // Mock framer-motion to avoid issues in tests
-vi.mock('framer-motion', () => ({
-  motion: {
-    div: ({ children, ...props }) => <div {...props}>{children}</div>,
-    section: ({ children, ...props }) => <section {...props}>{children}</section>,
-    h1: ({ children, ...props }) => <h1 {...props}>{children}</h1>,
-    p: ({ children, ...props }) => <p {...props}>{children}</p>,
-    button: ({ children, ...props }) => <button {...props}>{children}</button>,
-  },
-  AnimatePresence: ({ children }) => children,
-  useInView: () => [null, true],
-}))
+vi.mock('framer-motion', () => {
+  const passthrough = (Tag) => ({ children, ...props }) => <Tag {...props}>{children}</Tag>
+  return {
+    motion: {
+      div: passthrough('div'),
+      section: passthrough('section'),
+      h1: passthrough('h1'),
+      p: passthrough('p'),
+      button: passthrough('button'),
+      a: passthrough('a'),
+      nav: passthrough('nav'),
+      span: passthrough('span'),
+      img: passthrough('img'),
+    },
+    AnimatePresence: ({ children }) => children,
+    useInView: () => [null, true],
+  }
+})
 
-const renderWithRouter = (component) => {
+const renderApp = () => {
+  const router = createMemoryRouter(routes, { initialEntries: ['/'] })
   return render(
-    <BrowserRouter>
-      {component}
-    </BrowserRouter>
+    <HelmetProvider>
+      <RouterProvider router={router} />
+    </HelmetProvider>
   )
 }
 
 describe('App', () => {
   it('renders without crashing', () => {
-    renderWithRouter(<App />)
-    expect(screen.getByText('Buildtecture')).toBeInTheDocument()
+    renderApp()
+    // Brand appears in the header logo
+    expect(screen.getAllByText('Buildtecture').length).toBeGreaterThan(0)
   })
 
   it('displays the main navigation', () => {
-    renderWithRouter(<App />)
-    expect(screen.getByText('Home')).toBeInTheDocument()
-    expect(screen.getByText('About')).toBeInTheDocument()
-    expect(screen.getByText('Services')).toBeInTheDocument()
-    expect(screen.getByText('Projects')).toBeInTheDocument()
-    expect(screen.getByText('Materials')).toBeInTheDocument()
-    expect(screen.getByText('Contact')).toBeInTheDocument()
+    renderApp()
+    // Nav labels can appear in both the desktop and mobile menus
+    for (const label of ['Home', 'About', 'Projects', 'Packages', 'Blog', 'Contact']) {
+      expect(screen.getAllByText(label).length).toBeGreaterThan(0)
+    }
   })
 
   it('displays the hero section', () => {
-    renderWithRouter(<App />)
-    expect(screen.getByText(/Where design meets durability/)).toBeInTheDocument()
+    renderApp()
+    expect(screen.getByText(/design meets durability/i)).toBeInTheDocument()
   })
 })

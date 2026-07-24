@@ -14,7 +14,7 @@ const quoteReducer = (state, action) => {
         ...state,
         items: state.items.filter(item => item.id !== action.payload)
       }
-    case 'ADD_PREFERENCE':
+    case 'ADD_PREFERENCE': {
       // Check if preference already exists
       const exists = state.preferences.some(pref => pref.id === action.payload.id)
       if (exists) {
@@ -24,6 +24,7 @@ const quoteReducer = (state, action) => {
         ...state,
         preferences: [...state.preferences, action.payload]
       }
+    }
     case 'REMOVE_PREFERENCE':
       return {
         ...state,

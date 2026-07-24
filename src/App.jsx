@@ -1,72 +1,74 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
-import { QuoteProvider } from './contexts/QuoteContext'
-import { LoadingProvider, useLoading } from './contexts/LoadingContext'
-import LoadingAnimation from './components/ui/LoadingAnimation'
-import WhatsAppButton from './components/ui/WhatsAppButton'
-import Header from './components/layout/Header'
-import Footer from './components/layout/Footer'
+import Layout from './Layout'
 import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
 import ServiceDetail from './pages/ServiceDetail'
 import Projects from './pages/Projects'
 import ProjectDetail from './pages/ProjectDetail'
-import Package from './pages/Package'
 import Packages from './pages/Packages'
 import PackageDetail from './pages/PackageDetail'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import Contact from './pages/Contact'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
+import NotFound from './pages/NotFound'
+import { packagesData } from './data/packagesData'
 
-function AppContent() {
-  const { isLoading, loadingMessage, stopLoading } = useLoading()
-  const location = useLocation()
-  const isHomePage = location.pathname === '/'
+// Slugs for prerendering dynamic routes (keep in sync with sitemap.xml)
+const serviceSlugs = ['architectural-design', 'construction', 'renovation', 'materials-supply']
+const projectSlugs = [
+  'mr-shridhar-residence',
+  'mr-ram-murat-residence',
+  'mr-rohan-velani-residence',
+  'mr-shiva-residence',
+  'william-johns-pizza',
+]
+const packageTypes = Object.keys(packagesData)
+const blogSlugs = [
+  'sustainable-architecture-building-for-future',
+  'art-of-material-selection-modern-design',
+  'smart-home-integration-architectural-planning',
+  'renovation-vs-new-construction-right-choice',
+  'maximizing-natural-light-urban-spaces',
+  'future-of-construction-emerging-technologies',
+]
 
-  return (
-    <div className="min-h-screen flex flex-col">
-      <LoadingAnimation 
-        isLoading={isLoading} 
-        message={loadingMessage}
-        onComplete={stopLoading} 
-      />
-      
-      <a href="#main-content" className="skip-link">
-        Skip to main content
-      </a>
-      <Header />
-      
-      {/* WhatsApp Floating Button */}
-      <WhatsAppButton />
-      
-      <main id="main-content" className="flex-grow">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/services/:slug" element={<ServiceDetail />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:slug" element={<ProjectDetail />} />
-          <Route path="/packages" element={<Packages />} />
-          <Route path="/packages/:packageType" element={<PackageDetail />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </main>
-      {!isHomePage && <Footer />}
-    </div>
-  )
-}
-
-function App() {
-  return (
-    <LoadingProvider>
-      <QuoteProvider>
-        <AppContent />
-      </QuoteProvider>
-    </LoadingProvider>
-  )
-}
-
-export default App
+export const routes = [
+  {
+    path: '/',
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: 'about', element: <About /> },
+      { path: 'services', element: <Services /> },
+      {
+        path: 'services/:slug',
+        element: <ServiceDetail />,
+        getStaticPaths: () => serviceSlugs.map((s) => `services/${s}`),
+      },
+      { path: 'projects', element: <Projects /> },
+      {
+        path: 'projects/:slug',
+        element: <ProjectDetail />,
+        getStaticPaths: () => projectSlugs.map((s) => `projects/${s}`),
+      },
+      { path: 'packages', element: <Packages /> },
+      {
+        path: 'packages/:packageType',
+        element: <PackageDetail />,
+        getStaticPaths: () => packageTypes.map((s) => `packages/${s}`),
+      },
+      { path: 'blog', element: <Blog /> },
+      {
+        path: 'blog/:slug',
+        element: <BlogPost />,
+        getStaticPaths: () => blogSlugs.map((s) => `blog/${s}`),
+      },
+      { path: 'contact', element: <Contact /> },
+      { path: 'privacy', element: <Privacy /> },
+      { path: 'terms', element: <Terms /> },
+      { path: '*', element: <NotFound /> },
+    ],
+  },
+]

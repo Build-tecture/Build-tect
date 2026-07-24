@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Compass, Hammer, Wrench, Package, ArrowRight } from 'lucide-react'
+import SEO from '../components/ui/SEO'
 
 const services = [
   {
@@ -46,6 +47,11 @@ export default function Services() {
 
   return (
     <div className="pt-20">
+      <SEO
+        path="/services"
+        title="Our Services"
+        description="Architectural design, construction, renovation and premium materials supply — Buildtecture's full-service offering for residential and commercial projects."
+      />
       {/* Hero Section */}
       <section className="section-padding text-white" style={{ background: 'linear-gradient(to bottom right, #111827, #4B5563)' }}>
         <div className="container-custom text-center">

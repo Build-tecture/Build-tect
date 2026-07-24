@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import SEO from '../components/ui/SEO'
 
 const packages = [
   {
@@ -26,6 +27,11 @@ const packages = [
 export default function Packages() {
   return (
     <div className="pt-20 bg-[#F7F5F1]">
+      <SEO
+        path="/packages"
+        title="Construction Packages"
+        description="Choose from Buildtecture's Basic, Classic and Premium construction packages — transparent inclusions, designs, drawings and materials for every budget."
+      />
       {/* Hero Section */}
       <section className="py-16 bg-[#F1EDE8]">
         <div className="container-custom text-center">

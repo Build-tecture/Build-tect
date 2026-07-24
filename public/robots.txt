@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://buildtecture.com/sitemap.xml
-
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
+Sitemap: https://www.buildtecture.in/sitemap.xml

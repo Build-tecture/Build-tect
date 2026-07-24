@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+/* Fonts (Poppins, Playfair Display, Montserrat) are loaded via <link> in index.html
+   for faster, non-render-blocking delivery. */
 
 @tailwind base;
 @tailwind components;
@@ -8,7 +9,7 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     font-family: 'Poppins', sans-serif;
     color: #232323;
@@ -16,12 +17,43 @@
     @apply antialiased;
     perspective: 1000px;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', serif;
     @apply font-semibold leading-tight;
+    text-wrap: balance;
   }
-  
+
+  /* Visible keyboard-focus indicator across all interactive elements.
+     Mouse clicks don't trigger :focus-visible, so this stays clean for pointer users. */
+  :focus-visible {
+    outline: 2px solid #B7875A;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* On-brand text selection */
+  ::selection {
+    background-color: rgba(183, 135, 90, 0.28);
+    color: #1a1a1a;
+  }
+
+  /* Respect users who ask for less motion: neutralize animations, transitions,
+     and smooth scrolling. framer-motion reveals still show their final state. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
   .skip-link {
     @apply absolute -top-10 left-4 z-50 bg-brand-600 text-white px-4 py-2 rounded;
     @apply focus:top-4 transition-all duration-200;
@@ -384,14 +416,6 @@
   
   .glow-accent {
     box-shadow: 0 0 20px rgba(217, 176, 140, 0.4);
-  }
-
-  /* Text Gradient */
-  .text-gradient {
-    background: linear-gradient(135deg, #4B5563, #D9B08C);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
   }
 
   /* Loading Animations */

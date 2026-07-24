@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowLeft, MapPin, Calendar, Users, Download } from 'lucide-react'
+import SEO from '../components/ui/SEO'
 
 const projectData = {
   'mr-shridhar-residence': {
@@ -135,6 +136,13 @@ export default function ProjectDetail() {
 
   return (
     <div className="pt-20">
+      <SEO
+        path={`/projects/${slug}`}
+        title={project.title}
+        description={project.overview || `${project.category} project by Buildtecture in ${project.location}.`}
+        image={project.images?.[0]}
+        type="article"
+      />
       {/* Hero Gallery */}
       <section className="relative h-96 md:h-[500px] overflow-hidden">
         <img
@@ -256,6 +264,8 @@ export default function ProjectDetail() {
                     <img
                       src={image}
                       alt={`${project.title} - Image ${index + 2}`}
+                      loading="lazy"
+                      decoding="async"
                       className="max-w-full max-h-full object-contain"
                     />
                   </div>

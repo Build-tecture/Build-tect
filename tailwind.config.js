@@ -23,8 +23,10 @@ export default {
         muted: '#6B7280',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        serif: ['Georgia', 'serif'],
+        // Match the fonts actually rendered in index.css so `font-sans` /
+        // `font-serif` utilities stay consistent with the base styles.
+        sans: ['Poppins', 'system-ui', 'sans-serif'],
+        serif: ['Playfair Display', 'Georgia', 'serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',

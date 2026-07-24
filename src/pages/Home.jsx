@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { 
+import SEO from '../components/ui/SEO'
+import {
   ArrowRight, 
   Star,
   Building2,
@@ -193,6 +194,11 @@ export default function Home() {
 
   return (
     <div className="bg-main">
+      <SEO
+        path="/"
+        title="Architecture & Construction in India"
+        description="Buildtecture designs and builds beautiful, durable spaces — architectural design, construction, renovation and premium materials delivered on time, built to last."
+      />
       {/* Hero Section - Full Screen */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}

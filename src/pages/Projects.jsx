@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import SEO from '../components/ui/SEO'
 
 const projects = [
   {
@@ -91,6 +92,11 @@ export default function Projects() {
 
   return (
     <div className="pt-20">
+      <SEO
+        path="/projects"
+        title="Our Projects"
+        description="Explore Buildtecture's portfolio of residential and commercial projects — thoughtfully designed, expertly built spaces across India."
+      />
       {/* Hero Section */}
       <section className="section-padding text-white" style={{ background: 'linear-gradient(to bottom right, #111827, #4B5563)' }}>
         <div className="container-custom text-center">

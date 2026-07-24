@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowLeft, Calendar, User, Clock, Share2, Facebook, Twitter, Linkedin } from 'lucide-react'
+import SEO from '../components/ui/SEO'
 
 const blogData = {
   'sustainable-architecture-building-for-future': {
@@ -210,6 +211,13 @@ export default function BlogPost() {
 
   return (
     <div className="pt-20">
+      <SEO
+        path={`/blog/${slug}`}
+        title={post.title}
+        description={post.excerpt || `${post.title} — insights on ${post.category} from the Buildtecture team.`}
+        image={post.image}
+        type="article"
+      />
       {/* Hero Section */}
       <section className="relative h-96 overflow-hidden">
         <img

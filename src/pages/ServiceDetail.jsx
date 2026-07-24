@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowLeft, Check, Clock, Users, Award } from 'lucide-react'
+import SEO from '../components/ui/SEO'
 
 const serviceData = {
   'architectural-design': {
@@ -164,6 +165,11 @@ export default function ServiceDetail() {
 
   return (
     <div className="pt-20">
+      <SEO
+        path={`/services/${slug}`}
+        title={service.title}
+        description={service.subtitle}
+      />
       {/* Hero Section */}
       <section className="relative h-96 overflow-hidden">
         <img

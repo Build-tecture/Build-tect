@@ -4,8 +4,9 @@ import { MessageCircle } from 'lucide-react'
 
 export default function WhatsAppButton() {
   const [showTooltip, setShowTooltip] = useState(false)
-  const whatsappNumber = '911234567890' // Placeholder - will be replaced later
-  const whatsappLink = `https://wa.me/${whatsappNumber}`
+  const whatsappNumber = '919606737378'
+  const whatsappMessage = encodeURIComponent("Hi Buildtecture, I'd like to know more about your services.")
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 
   return (
     <div className="fixed bottom-6 right-6 z-50">

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { Award, Users, Clock, Target, Quote } from 'lucide-react'
+import SEO from '../components/ui/SEO'
 
 const team = [
   {
@@ -65,6 +66,11 @@ export default function About() {
 
   return (
     <div className="pt-20">
+      <SEO
+        path="/about"
+        title="About Us"
+        description="Learn about Buildtecture — our team, values and approach to architectural design, construction and delivering premium spaces on time across India."
+      />
       {/* Hero Section */}
       <section className="section-padding text-white" style={{ background: 'linear-gradient(to bottom right, #111827, #4B5563)' }} ref={heroRef}>
         <div className="container-custom">
